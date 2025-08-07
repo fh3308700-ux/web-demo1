@@ -7,55 +7,107 @@ st.set_page_config(page_title="Tic-Tac-Toe", layout="centered")
 st.markdown('''
     <style>
     body {
-        background: linear-gradient(to right, #2c3e50, #4ca1af);  /* Darker background gradient */
+        background: linear-gradient(to right, #f5b7b1, #f1948a);  /* Soft gradient for the background */
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
     }
+
     .title {
         text-align: center;
-        font-size: 3.5em;  /* Increased font size */
+        font-size: 4em;
         font-weight: bold;
-        color: #ff6347;  /* Changed title color to a vibrant color */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        color: #f39c12;  /* Golden yellow */
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
     }
+
     .turn-text {
         text-align: center;
-        font-size: 1.5em;
+        font-size: 2em;
         color: #fff;
         margin-bottom: 20px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
     }
+
     .game-container {
-        background-color: #3e4e6a;  /* Darker game container background */
-        border-radius: 20px;
-        padding: 20px;
-        width: 480px;  /* Increased width */
+        background-color: #2c3e50;
+        border-radius: 15px;
+        padding: 40px;
+        width: 480px;
         margin: auto;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        position: relative;
     }
+
     .button-cell {
-        height: 160px !important;  /* Increased cell height */
-        width: 160px !important;   /* Increased cell width */
-        font-size: 80px !important;  /* Increased font size */
-        border-radius: 12px !important;
-        font-weight: bold !important;
-        background-color: #3498db;  /* Changed cell color to a cool blue */
-        border: 2px solid #2980b9;  /* Darker blue border */
+        height: 150px;
+        width: 150px;
+        font-size: 80px;
+        font-weight: bold;
+        background-color: #2980b9;  /* Blue color for the cells */
+        border: none;
+        border-radius: 12px;
         color: white;
-        margin: 5px;  /* Decreased the gap between cells */
+        margin: 10px;
+        cursor: pointer;
         transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+
     .button-cell:hover {
-        background-color: #2980b9;  /* Darker blue when hovered */
-        color: #ecf0f1;  /* Lighter color on hover */
-        transform: scale(1.1);  /* Zoom effect on hover */
+        background-color: #3498db;
+        transform: scale(1.1);
     }
+
+    .button-cell:active {
+        transform: scale(0.9);
+    }
+
     .restart-button {
         font-size: 20px;
         padding: 10px 30px;
         border-radius: 10px;
         margin-top: 30px;
-        background-color: #27ae60;  /* Dark green restart button */
+        background-color: #27ae60;  /* Green restart button */
         color: white;
         border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
     }
+
+    .restart-button:hover {
+        background-color: #2ecc71;
+    }
+
+    .winner-message {
+        font-size: 30px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 30px;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        text-align: center;
+        width: 350px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        color: rgb(242, 239, 245);
+        font-size: 25px;
+        cursor: pointer;
+    }
+
     </style>
 ''', unsafe_allow_html=True)
 
